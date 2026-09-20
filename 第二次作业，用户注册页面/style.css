@@ -1,0 +1,367 @@
+/* ========================================
+   用户注册页面样式  style.css
+   湖南文理学院芙蓉学院 · Web应用开发技术实验2
+   ======================================== */
+
+/* ---------- 全局变量与重置 ---------- */
+:root {
+  --primary: #4f6ef7;
+  --primary-dark: #3b52d9;
+  --primary-light: #eef1ff;
+  --text-main: #2b2f3a;
+  --text-sub: #6b7280;
+  --border: #e2e6ef;
+  --danger: #e5484d;
+  --success: #30a46c;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(79, 110, 247, 0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+  color: var(--text-main);
+  line-height: 1.6;
+  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 50%, #f3e8ff 100%);
+  min-height: 100vh;
+}
+
+/* ---------- 页面头部 ---------- */
+.site-header {
+  text-align: center;
+  padding: 48px 20px 28px;
+}
+
+.site-header h1 {
+  font-size: 36px;
+  color: var(--primary-dark);
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+}
+
+.header-subtitle {
+  color: var(--text-sub);
+  font-size: 15px;
+}
+
+/* ---------- 主体两栏布局 ---------- */
+.main-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px 48px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.side-column {
+  width: 340px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-column {
+  flex: 1;
+}
+
+/* ---------- 卡片 ---------- */
+.card {
+  background: #ffffff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.card h2 {
+  font-size: 18px;
+  color: var(--primary-dark);
+  border-left: 4px solid var(--primary);
+  padding-left: 10px;
+  margin-bottom: 16px;
+}
+
+/* ---------- 列表样式 ---------- */
+.step-list,
+.notice-list {
+  padding-left: 22px;
+}
+
+.step-list li,
+.notice-list li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.step-list li::marker {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.faq-list dt {
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--text-main);
+  margin-top: 12px;
+}
+
+.faq-list dt:first-child {
+  margin-top: 0;
+}
+
+.faq-list dd {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-left: 0;
+  margin-top: 4px;
+}
+
+/* ---------- 表格 ---------- */
+.benefit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.benefit-table th,
+.benefit-table td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.benefit-table thead th {
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.benefit-table tbody tr:nth-child(even) {
+  background: #f8f9ff;
+}
+
+.benefit-table tbody tr:hover {
+  background: var(--primary-light);
+}
+
+.benefit-table .center {
+  text-align: center;
+  color: var(--success);
+  font-weight: bold;
+}
+
+/* ---------- 表单 ---------- */
+fieldset {
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin-top: 18px;
+  padding-top: 6px;
+}
+
+fieldset:first-of-type {
+  border-top: none;
+  margin-top: 0;
+}
+
+legend {
+  font-weight: bold;
+  color: var(--primary-dark);
+  padding: 0 8px;
+  font-size: 15px;
+}
+
+.form-item {
+  margin-top: 16px;
+}
+
+.form-item label,
+.field-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: var(--danger);
+  font-weight: bold;
+}
+
+.hint {
+  display: block;
+  font-size: 12px;
+  color: var(--text-sub);
+  margin-top: 4px;
+}
+
+.hint.error {
+  color: var(--danger);
+}
+
+/* 输入控件统一风格 */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-main);
+  background: #fafbff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 110, 247, 0.15);
+  background: #ffffff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* 密码框 + 显示切换按钮 */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 64px;
+}
+
+.toggle-pwd {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.toggle-pwd:hover {
+  background: #dde3ff;
+}
+
+/* 单选框 / 复选框 */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.radio-group label,
+.checkbox-group label {
+  display: inline-flex;
+  align-items: center;
+  font-weight: normal;
+  margin-bottom: 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* 文件上传 */
+input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  background: #fafbff;
+  cursor: pointer;
+}
+
+/* ---------- 按钮 ---------- */
+.form-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.btn-submit,
+.btn-reset {
+  flex: 1;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 6px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(79, 110, 247, 0.35);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(79, 110, 247, 0.45);
+}
+
+.btn-reset {
+  background: #f1f3f9;
+  color: var(--text-sub);
+}
+
+.btn-reset:hover {
+  background: #e6e9f2;
+}
+
+/* ---------- 页面底部 ---------- */
+.site-footer {
+  text-align: center;
+  padding: 24px 20px;
+  color: var(--text-sub);
+  font-size: 13px;
+  border-top: 1px solid rgba(226, 230, 239, 0.6);
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 900px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .side-column {
+    width: 100%;
+  }
+
+  .site-header h1 {
+    font-size: 28px;
+  }
+}

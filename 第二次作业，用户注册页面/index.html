@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户注册 | 湖南文理学院芙蓉学院</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ 页面头部 ============ -->
+  <header class="site-header">
+    <h1>用户注册</h1>
+    <p class="header-subtitle">欢迎加入湖南文理学院芙蓉学院在线学习平台，请填写以下信息完成注册</p>
+  </header>
+
+  <!-- ============ 页面主体 ============ -->
+  <main class="main-container">
+
+    <!-- 左侧信息栏 -->
+    <aside class="side-column">
+
+      <!-- 注册步骤（有序列表 ol） -->
+      <section class="card">
+        <h2>注册步骤</h2>
+        <ol class="step-list">
+          <li>填写个人基本信息</li>
+          <li>设置账号与登录密码</li>
+          <li>选择兴趣爱好并上传头像</li>
+          <li>确认信息后点击「注册」</li>
+        </ol>
+      </section>
+
+      <!-- 注册须知（无序列表 ul） -->
+      <section class="card">
+        <h2>注册须知</h2>
+        <ul class="notice-list">
+          <li>带 <span class="required">*</span> 的项目为必填项</li>
+          <li>密码长度须为 6 - 16 位字符</li>
+          <li>手机号须为 11 位数字，用于账号安全验证</li>
+          <li>请填写真实有效的邮箱，便于找回密码</li>
+        </ul>
+      </section>
+
+      <!-- 常见问题（定义列表 dl） -->
+      <section class="card">
+        <h2>常见问题</h2>
+        <dl class="faq-list">
+          <dt>忘记密码怎么办？</dt>
+          <dd>在登录页点击「忘记密码」，通过注册邮箱即可重置。</dd>
+          <dt>收不到验证邮件怎么办？</dt>
+          <dd>请检查垃圾邮件箱，或将平台邮箱加入白名单。</dd>
+          <dt>头像上传有什么限制？</dt>
+          <dd>支持常见图片格式，可一次选择多张图片上传。</dd>
+        </dl>
+      </section>
+
+      <!-- 会员权益对比（表格） -->
+      <section class="card">
+        <h2>会员权益对比</h2>
+        <table class="benefit-table">
+          <thead>
+            <tr>
+              <th>权益项目</th>
+              <th>普通会员</th>
+              <th>VIP 会员</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>课程视频</td>
+              <td>基础课程</td>
+              <td>全部课程</td>
+            </tr>
+            <tr>
+              <td>在线答疑</td>
+              <td colspan="2" class="center">每周 2 次</td>
+            </tr>
+            <tr>
+              <td rowspan="2">专属服务</td>
+              <td>—</td>
+              <td>专属客服</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td>学习报告</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </aside>
+
+    <!-- 右侧注册表单 -->
+    <section class="card form-column">
+      <h2>填写注册信息</h2>
+      <form id="register-form" action="register.php" method="post" novalidate>
+
+        <!-- 账号信息 -->
+        <fieldset>
+          <legend>账号信息</legend>
+
+          <div class="form-item">
+            <label for="username">用户名 <span class="required">*</span></label>
+            <input type="text" id="username" name="username" placeholder="请输入用户名" required>
+          </div>
+
+          <div class="form-item">
+            <label for="password">密码 <span class="required">*</span></label>
+            <div class="password-wrapper">
+              <input type="password" id="password" name="password" placeholder="6-16位字符" minlength="6" maxlength="16" required>
+              <button type="button" class="toggle-pwd" id="toggle-pwd">显示</button>
+            </div>
+          </div>
+
+          <div class="form-item">
+            <label for="confirm-password">确认密码 <span class="required">*</span></label>
+            <input type="password" id="confirm-password" name="confirmPassword" placeholder="请再次输入密码" required>
+            <span class="hint" id="pwd-hint"></span>
+          </div>
+
+          <div class="form-item">
+            <span class="field-label">性别 <span class="required">*</span></span>
+            <div class="radio-group">
+              <!-- label 用法一：for + id 关联 -->
+              <input type="radio" id="male" name="gender" value="male" checked>
+              <label for="male">男</label>
+              <!-- label 用法二：包裹式 -->
+              <label class="wrap-label">
+                <input type="radio" name="gender" value="female"> 女
+              </label>
+            </div>
+          </div>
+
+          <div class="form-item">
+            <label for="birthday">出生日期</label>
+            <input type="date" id="birthday" name="birthday">
+          </div>
+
+          <div class="form-item">
+            <label for="email">邮箱 <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+          </div>
+
+          <div class="form-item">
+            <label for="phone">手机号 <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="请输入 11 位手机号" pattern="[0-9]{11}" title="请输入 11 位数字手机号" required>
+          </div>
+
+        </fieldset>
+
+        <!-- 更多信息 -->
+        <fieldset>
+          <legend>更多信息</legend>
+
+          <div class="form-item">
+            <span class="field-label">兴趣爱好</span>
+            <div class="checkbox-group">
+              <input type="checkbox" id="hobby-reading" name="hobby" value="reading">
+              <label for="hobby-reading">阅读</label>
+              <input type="checkbox" id="hobby-sports" name="hobby" value="sports">
+              <label for="hobby-sports">运动</label>
+              <input type="checkbox" id="hobby-music" name="hobby" value="music">
+              <label for="hobby-music">音乐</label>
+              <input type="checkbox" id="hobby-travel" name="hobby" value="travel">
+              <label for="hobby-travel">旅行</label>
+            </div>
+          </div>
+
+          <div class="form-item">
+            <label for="avatar">头像上传</label>
+            <input type="file" id="avatar" name="avatar" accept="image/*" multiple>
+            <span class="hint">支持 JPG / PNG 等图片格式，可多选</span>
+          </div>
+
+          <div class="form-item">
+            <label for="city">所在城市</label>
+            <select id="city" name="city">
+              <option value="beijing">北京</option>
+              <option value="shanghai">上海</option>
+              <option value="changsha" selected>长沙</option>
+              <option value="guangzhou">广州</option>
+              <option value="shenzhen">深圳</option>
+            </select>
+          </div>
+
+          <div class="form-item">
+            <label for="bio">个人简介</label>
+            <textarea id="bio" name="bio" rows="4" cols="50" placeholder="简单介绍一下自己（选填）"></textarea>
+          </div>
+
+        </fieldset>
+
+        <!-- 表单操作 -->
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">注册</button>
+          <button type="reset" class="btn-reset">重置</button>
+        </div>
+
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ============ 页面底部 ============ -->
+  <footer class="site-footer">
+    <p>&copy; 2026 湖南文理学院芙蓉学院 · 软件工程专业 · Web 应用开发技术实验</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
