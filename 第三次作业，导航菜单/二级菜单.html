@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二级水平导航菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body {
+            background-color: #f5f7fa;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        .logo {
+            background: #1f2937;
+            color: white;
+            padding:12px 20px;
+            text-align: center;  /*文字居中*/
+            font-size: 20px;
+        }
+        /* 一级菜单：flex + 均匀分布 */
+        body > ul:nth-child(2) {
+            display: flex;
+            justify-content: space-evenly;
+            background-color:#2c3e50;
+            width:100%;
+        }
+        body > ul:nth-child(2) > li {
+            position: relative; /*父元素开启相对定位，给二级菜单做参照物*/
+        }
+        body > ul:nth-child(2) > li > a {
+            display:block;
+            padding:14px 22px;
+            font-size:16px;
+        }
+        /* 一级菜单hover背景 */
+        body > ul:nth-child(2) > li > a:hover {
+            background-color:#3498db;
+        }
+        /* 二级下拉菜单，居中 */
+        body > ul:nth-child(2) li ul {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background:#34495e;
+            display: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2); /*增加阴影，美化下拉框*/
+        }
+        body > ul:nth-child(2) li ul li a {
+            display:block;
+            padding:12px 26px;
+            white-space: nowrap;
+            text-align:center;  /*二级菜单文字居中*/
+        }
+        body > ul:nth-child(2) li ul li a:hover {
+            background:#3498db;
+        }
+        /* 鼠标悬浮父li，显示二级ul */
+        body > ul:nth-child(2) > li:hover > ul {
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="logo">欢迎访问湖南文理学院</li>
+    </ul>
+    <ul>         
+        <li><a href="#">首页</a></li>
+        <li><a href="#">教学院(部)</a>
+            <ul>
+                <li><a href="#">计算机与电气工程学院</a></li>
+                <li><a href="#">芙蓉学院</a></li>
+            </ul>
+        </li>
+        <li><a href="#">党群机构</a></li>        
+        <li><a href="#">行政教辅机构</a></li>
+        <li><a href="#">教学科研</a></li>
+        <li><a href="#">招生就业</a></li>
+        <li><a href="#">国际交流</a></li>
+        <li><a href="#">数字图书馆</a></li>
+    </ul>    
+</body>
+</html>
